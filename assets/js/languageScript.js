@@ -1,8 +1,9 @@
+let loadedLan = "";
+
 function switchLanguage(lan = null) {
     let file = "";
     let languageName = "";
     let loadedLan = lan
-    console.log("Hoi:" + loadedLan)
 
     if(!lan){
         loadedLan = "nl";
@@ -32,7 +33,14 @@ function switchLanguage(lan = null) {
         rawFile.onload = function (){
             const data = rawFile.response;
             Object.entries(data).forEach(value => {
-                document.getElementById(value[0]).innerHTML = value[1];
+                let key = value[0]
+                let stringValue = value[1];
+                let element = document.getElementById(key)
+                if(element) {
+                    element.innerText = stringValue;
+                }else{
+                    console.log("Element met ID: " + key + " niet gevonden!")
+                }
                 document.getElementById("lang-select").innerHTML = "<img width='25px' style='margin-right: 10px' src='assets/img/country/" + loadedLan + ".png'>" + languageName;
             })
         }
@@ -43,10 +51,29 @@ function switchLanguage(lan = null) {
     }
 }
 
-window.onload = function() {
+function getString(id){
+    console.log("function get executed!");
+    let file = "assets/js/data/langData/" +  localStorage.getItem("lan_key") + ".json";
+    let rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file)
+    rawFile.responseType = "json"
+    rawFile.send();
+    rawFile.onload = function () {
+        const data = rawFile.response;
+        console.log(data);
+        let element = document.getElementById(id);
+        if(element) {
+            element.innerText = data[id];
+        }else{
+            console.log("Element met ID: " + id + " niet gevonden!")
+        }
+    }
+}
+
+window.addEventListener('DOMContentLoaded', function (){
     const localLan = localStorage.getItem("lan_key");
     switchLanguage(localLan);
-}
+})
 
 
 
