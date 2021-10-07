@@ -8,5 +8,19 @@
   "loading": "Loading...",
 
   "button_tour": "Digital tour",
-  "button_gallery": "View gallery"
+  "areyousure" : "Are u sure?",
+  "areyousurelongtext": "Are your sure you want to continue with the current set language: English? You can't switch language during the digital tour",
+  "cancel" : "Cancel",
+  "continue": "Continue to digital tour",
+
+
+
+  "button_gallery": "View gallery",
+
+  "part_select": "Witch part of our digital tour do you want to watch?",
+  "easter_island" : "Easter islands",
+  "pole_area": "Polar Regions",
+  "mountains": "Mountains",
+
+  "go_back": "<< Go back"
 }

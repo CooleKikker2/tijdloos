@@ -2,11 +2,25 @@
   "dutch": "Nederlands",
   "english": "English",
 
-  "website_title": "Welkom bij Tijdloze momenten!",
-  "website_title_subtext": "Maak een reis door de wereld met onze digitale tour",
+  "website_title": "Welcome to Tijdloze momenten!",
+  "website_title_subtext": "Travel through the word with our digital tour",
 
-  "loading": "Laden...",
+  "loading": "Loading...",
 
-  "button_tour": "Bekijk de digitale tour",
-  "button_gallery": "Bekijk de galerij!"
+  "button_tour": "Digital tour",
+  "areyousure" : "Are u sure?",
+  "areyousurelongtext": "Are your sure you want to continue with the current set language: English? You can't switch language during the digital tour",
+  "cancel" : "Cancel",
+  "continue": "Continue to digital tour",
+
+
+
+  "button_gallery": "View gallery",
+
+  "part_select": "Witch part of our digital tour do you want to watch?",
+  "easter_island" : "Easter islands",
+  "pole_area": "Polar Regions",
+  "mountains": "Mountains",
+
+  "go_back": "<< Go back"
 }

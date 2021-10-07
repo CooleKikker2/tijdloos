@@ -1,23 +1,36 @@
 function digital_tour(){
-    callLoader();
+    console.log("Function get exectued");
+    callLoader("./assets/img/loading_bg.png");
     setTimeout(function (){
         window.location.href = "/tijdloos/starttour.html";
     }, 4750);
 }
 
-function call_loading_screen_on_start(){
-    console.log("Loading Screen init");
-    callLoader("50", 0);
+function call_start_tour(location, element){
+    element.classList.add("selectedChoice")
+    element.classList.remove("col-md-4")
+    element.classList.remove("hoverBorder");
 }
 
-function callLoader(loadPercentage = "0", loadInOnStart = 1){
+function call_loading_screen_on_start(){
+
+    callLoader("./assets/img/loading_bg.png", "50", 0);
+
+}
+
+function callLoader(loadImg, loadPercentage = "0", loadInOnStart = 1){
     let breakLine = document.createElement("br");
 
     let loader = document.createElement("div");
     if(loadInOnStart == 1) {
-        loader.classList.add("loader", "animatedLoader")
+        loader.classList.add("loader", "animatedLoader");
+        loader.style.background = "url('"+ loadImg +"') no-repeat center center fixed";
+        loader.style.backgroundSize = "cover";
     }else{
-        loader.className = "loader";
+        console.log("Afbeelding: " + loadImg)
+        loader.classList.add("loader");
+        loader.style.background = "url('"+ loadImg +"') no-repeat center center fixed";
+        loader.style.backgroundSize = "cover";
     }
     loader.setAttribute("id", "loader");
 
@@ -38,11 +51,11 @@ function callLoader(loadPercentage = "0", loadInOnStart = 1){
     loadProgressText.setAttribute("id", "loading")
 
 
-    let loadProgressSpinnerDiv = document.createElement("div")
+    let loadProgressSpinnerDiv = document.createElement("span")
     loadProgressSpinnerDiv.className = "spinner-border";
     loadProgressSpinnerDiv.setAttribute("role", "status");
-    let loadProgressSpinner = document.createElement("em")
-    loadProgressSpinner.className = "sr-only";
+    let loadProgressSpinner = document.createElement("span")
+    loadProgressSpinner.classList.add("sr-only")
 
 
     let loadProgress = document.createElement("div")
@@ -86,12 +99,10 @@ function deleteLoader(){
     const element = document.getElementById("loader")
     if(element){
         element.classList.add("fadeOut");
-        setInterval(function(){
+        setTimeout(function(){
             element.remove()
-        }, 3000)
+        }, 2500)
 
-    }else{
-        console.log("Error: Loader not found!")
     }
 }
 

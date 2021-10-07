@@ -5,13 +5,19 @@
     <title>Tijdloze Momenten</title>
     <!-- || End || Set title and headers for project -->
 
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
-
     <!-- || Start || Load in bootstrap style scripts and application styles -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link href="assets/css/style.css" rel="stylesheet">
     <!-- || End || Load in bootstrap style scripts and application styles -->
@@ -20,17 +26,38 @@
     <script src="assets/js/languageScript.js"></script>
     <script src="assets/js/redirectScript.js"></script>
     <!-- || End || Loading essential script for application -->
+
 </head>
 
-<body>
-<div class="container-fluid vh-100 main-bg fadeIn" id="main_bg">
+<body class="body">
+<div class="container-fluid main-bg fadeIn" id="main_bg">
+    <div class="modal fade" tabindex="-1" role="dialog" id="sureModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="areyousure"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="areyousurelongtext"></p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" onclick="$('#sureModal').modal('hide');digital_tour();"><p id="continue" class="no-style"></p></button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cancel"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row" style="margin-top: 10px">
         <nav class="navbar col-lg-12">
             <div class="dropdown col-lg-3" style="margin-bottom: 15px; margin-top: 15px;">
-                <button class="btn btn-light dropdown-toggle w-100" type="button" data-toggle="dropdown" id="lang-select"></button>
+                <button class="btn btn-white dropdown-toggle w-100" type="button" data-toggle="dropdown" ><p id="lang-select" class="no-style"></p><em style="margin-left: 5px" class="fa fa-caret-down"></em></button>
                 <ul class="dropdown-menu w-100 text-center">
-                    <a onclick="switchLanguage('nl')"><li><button class="btn btn-light w-100"><img width="25px" style="margin-right: 10px;" src="assets/img/country/nl.png" /><p class="d-inline" id="dutch"></p></button></li></a>
-                    <a onclick="switchLanguage('en')"><li><button class="btn btn-light w-100"><img width="25px" style="margin-right: 10px" src="assets/img/country/en.png" /><p class="d-inline" id="english"></p></button></li></a>
+                    <a onclick="switchLanguage('nl')"><li><button class="btn btn-white w-100"><img width="25px" style="margin-right: 10px;" src="assets/img/country/nl.png" /><p class="d-inline" id="dutch"></p></button></li></a>
+                    <a onclick="switchLanguage('en')"><li><button class="btn btn-white w-100"><img width="25px" style="margin-right: 10px" src="assets/img/country/en.png" /><p class="d-inline" id="english"></p></button></li></a>
                 </ul>
             </div>
             <a class="text-center col-lg-6 flyInFromAbove" href="#"><img src="assets/img/logo.svg" width="65%" alt="Logo TijlozeMomenten"></a>
@@ -42,13 +69,10 @@
     </div>
         <div class="footer-div">
             <div style="width: 20%; float: right; margin-bottom: 15px">
-                <button onclick="digital_tour()" class="btn btn-success btn-block btn-icon-animation"><p class="no-style text-center w-100" style="float: left" id="button_tour"></p><em style="margin-left: -30%" class="fas fa-arrow-right animation_arrow"></em></button>
+                <button class="btn btn-success btn-block btn-icon-animation" data-toggle="modal" data-target="#sureModal"><p class="no-style text-center w-100" style="float: left" id="button_tour"></p><em style="margin-left: -30%" class="fas fa-arrow-right animation_arrow"></em></button>
                 <button class="btn btn-primary btn-block btn-icon-animation"><p class="no-style text-center w-100" style="float: left" id="button_gallery"></p><em style="margin-left: -30%" class="fas fa-arrow-right animation_arrow"></em></button>
             </div>
         </div>
-
-
-
 </div>
 
 </body>

@@ -38,10 +38,11 @@ function switchLanguage(lan = null) {
                 let element = document.getElementById(key)
                 if(element) {
                     element.innerText = stringValue;
-                }else{
-                    console.log("Element met ID: " + key + " niet gevonden!")
                 }
-                document.getElementById("lang-select").innerHTML = "<img width='25px' style='margin-right: 10px' src='assets/img/country/" + loadedLan + ".png'>" + languageName;
+                let languageSelector = document.getElementById("lang-select");
+                if(languageSelector) {
+                    document.getElementById("lang-select").innerHTML = "<img width='25px' style='margin-right: 10px' src='assets/img/country/" + loadedLan + ".png'>" + languageName;
+                }
             })
         }
 
@@ -52,7 +53,6 @@ function switchLanguage(lan = null) {
 }
 
 function getString(id){
-    console.log("function get executed!");
     let file = "assets/js/data/langData/" +  localStorage.getItem("lan_key") + ".json";
     let rawFile = new XMLHttpRequest();
     rawFile.open("GET", file)
@@ -60,12 +60,9 @@ function getString(id){
     rawFile.send();
     rawFile.onload = function () {
         const data = rawFile.response;
-        console.log(data);
         let element = document.getElementById(id);
         if(element) {
             element.innerText = data[id];
-        }else{
-            console.log("Element met ID: " + id + " niet gevonden!")
         }
     }
 }
