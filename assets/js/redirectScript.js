@@ -1,8 +1,18 @@
+var clicked = 0
+
 function digital_tour(){
-    console.log("Function get exectued");
+    clicked = 1;
     callLoader("./assets/img/loading_bg.png");
     setTimeout(function (){
         window.location.href = "/tijdloos/starttour.html";
+    }, 4750);
+}
+
+function gallery(){
+    clicked = 1;
+    callLoader("./assets/img/loading_bg_2.jpeg");
+    setTimeout(function (){
+        window.location.href = "/tijdloos/gallery.html";
     }, 4750);
 }
 
@@ -12,9 +22,8 @@ function call_start_tour(location, element){
     element.classList.remove("hoverBorder");
 }
 
-function call_loading_screen_on_start(){
-
-    callLoader("./assets/img/loading_bg.png", "50", 0);
+function call_loading_screen_on_start(img){
+    callLoader(img, "50", 0);
 
 }
 
@@ -27,7 +36,6 @@ function callLoader(loadImg, loadPercentage = "0", loadInOnStart = 1){
         loader.style.background = "url('"+ loadImg +"') no-repeat center center fixed";
         loader.style.backgroundSize = "cover";
     }else{
-        console.log("Afbeelding: " + loadImg)
         loader.classList.add("loader");
         loader.style.background = "url('"+ loadImg +"') no-repeat center center fixed";
         loader.style.backgroundSize = "cover";
@@ -105,4 +113,13 @@ function deleteLoader(){
 
     }
 }
+
+function deleteLoaderWithoutAnimation(){
+    const element = document.getElementById("loader")
+    if(element){
+        element.remove()
+    }
+}
+
+
 

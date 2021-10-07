@@ -26,15 +26,17 @@
   <script src="assets/js/languageScript.js"></script>
   <script src="assets/js/redirectScript.js"></script>
   <script src="assets/js/loadingScreenStart.js"></script>
+
   <!-- || End || Loading essential script for application -->
 </head>
 <body class="noOverflow">
-<div class="container-fluid main-bg fadeIn" id="main_bg">
+<div class="container-fluid main-bg" id="main_bg">
+  <script>
+    call_prev_loading_screen("./assets/img/loading_bg.png")
+  </script>
   <div class="row choiceDiv">
     <div class="overlay">
-      <div class="col-md-1">
-        <a class="text-white" href="index.html" id="go_back"></a>
-      </div>
+      <div class="col-md-1"></div>
       <div class="col-md-10">
         <h2 id="part_select"></h2>
       </div>

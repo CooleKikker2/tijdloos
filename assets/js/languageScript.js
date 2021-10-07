@@ -70,6 +70,7 @@ function getString(id){
 window.addEventListener('DOMContentLoaded', function (){
     const localLan = localStorage.getItem("lan_key");
     switchLanguage(localLan);
+
 })
 
 
