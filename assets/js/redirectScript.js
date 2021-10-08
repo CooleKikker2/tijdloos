@@ -17,9 +17,16 @@ function gallery(){
 }
 
 function call_start_tour(location, element){
-    element.classList.add("selectedChoice")
-    element.classList.remove("col-md-4")
-    element.classList.remove("hoverBorder");
+    clicked = 1;
+    switch (location){
+        case "spitsbergen":
+            callLoader("./assets/img/tour/spitsbergen/loading.png")
+            break;
+    }
+    setTimeout(function (){
+        window.location.href = "/tijdloos/tour/" + location + ".html";
+    }, 4750);
+
 }
 
 function call_loading_screen_on_start(img){

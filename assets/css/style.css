@@ -159,7 +159,7 @@
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 div.main-bg{
@@ -323,10 +323,15 @@ div.main-bg{
 
 .pole{
     background: url('../img/choiceMenu/pole.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+
 }
 
 .mountain{
     background: url('../img/choiceMenu/mountain.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .statue{
@@ -347,14 +352,6 @@ div.main-bg{
     left: 66.66666666%;
 }
 
-
-.selectedChoice{
-    animation: SelectedChoice 2s;
-    z-index: 5; !important;
-    animation-fill-mode: forwards;
-    position: absolute;
-}
-
 .hoverBorder:hover{
     cursor: pointer;
     -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
@@ -362,7 +359,17 @@ div.main-bg{
     transition: 0.5s;
 }
 
+.actionDiv{
+    width: 20%;
+    margin-bottom: 15px;
+    float: right;
+    margin-right: 15px;
+}
 
+.marginAuto{
+    margin: 0 auto;
+    text-align: center;
+}
 
 
 
@@ -421,17 +428,6 @@ div.main-bg{
 @keyframes ZoomIn {
     100%{
         width: 40% !important;
-    }
-}
-
-@keyframes SelectedChoice  {
-    0%{
-        width: 25%;
-    }
-    100%{
-        width: 100%; !important;
-        margin-left: 0;
-        left: 0;
     }
 }
 
@@ -504,5 +500,36 @@ div.main-bg{
 @keyframes Flashing {
     100%{
         margin-left: -25%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .actionDiv{
+        width: 50%;
+    }
+    .choiceMenu p{
+        font-size: 10px;
+        transform: rotate(90deg);
+        width: 100vh;
+        margin-left: -50vh;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .actionDiv{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1400px) {
+    .choiceMenu{
+        width: 33%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: block;
+    }
+
+    .choiceMenu p{
+        font-size: 4em;
     }
 }
